@@ -1,0 +1,1 @@
+LocalVoice is a civic engagement platform that enables users — especially those in remote or underserved areas — to upload photos and videos of infrastructure, health, and environmental issues in their communities. These reports can be viewed by governmental bodies, NGOs, and individuals interested in making a difference.
