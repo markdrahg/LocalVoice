@@ -1,0 +1,9 @@
+I want to create simple website called LocalVoice, My team and I have just started the project and I'm supposed to develope a basic looking homage with nav bar home, about, signup and login
+
+This a website where individuals  in Ghana more especially from undeveloped areas can upload image and video contents of the difficulties of their residential areas. 
+Making room for the government, NGOs or capable individuals to help them out.
+
+
+Let's work on the homepage usign html, css and javascript.
+It should look attractive, modern and responsive.
+Also let's add some images and image slides to the page
