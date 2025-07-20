@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recycle Bin - LocalVoice</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img id="profilePic" src="https://via.placeholder.com/80" alt="Profile" />
+        <input type="file" id="uploadImage" accept="image/*" />
+        <h2>Hello, [Username]</h2>
+      </div>
+      <nav class="nav-links">
+       <a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+<a href="upload.html"><i class="fas fa-upload"></i> Upload</a>
+<a href="inbox.html"><i class="fas fa-envelope"></i> Inbox</a>
+<a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+<a href="recyclebin.html"><i class="fas fa-trash"></i> Recycle Bin</a>
+<a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Recycle Bin</h1>
+      <p>Manage deleted messages here. You can restore or permanently delete them.</p>
+
+      <div class="message-box">
+        <div class="message">
+          <h4>From: Good Samaritan</h4>
+          <p>We saw your post. Help is on the way!</p>
+          <button class="restore-btn">Restore</button>
+          <button class="delete-btn">Delete Permanently</button>
+        </div>
+
+        <div class="message">
+          <h4>From: Assembly Officer</h4>
+          <p>Your concern has been forwarded to the right department.</p>
+          <button class="restore-btn">Restore</button>
+          <button class="delete-btn">Delete Permanently</button>
+        </div>
+      </div>
+
+      <div class="recycle-controls">
+        <button class="empty-bin-btn">Empty Recycle Bin</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Logout Confirmation Popup -->
+  <div id="logout-popup" class="popup">
+    <div class="popup-content">
+      <p>Are you sure you want to logout?</p>
+      <button onclick="confirmLogout()">YES</button>
+      <button onclick="cancelLogout()">NO</button>
+    </div>
+  </div>
+
+  <script>
+    // Logout Popup Logic
+    const logoutBtn = document.getElementById("logout-btn");
+    const popup = document.getElementById("logout-popup");
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popup.style.display = "flex";
+    });
+
+    function confirmLogout() {
+      window.location.href = "index.html";
+    }
+
+    function cancelLogout() {
+      popup.style.display = "none";
+    }
+
+    // Delete Message
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.closest(".message").remove();
+      });
+    });
+
+    // Empty Recycle Bin
+    document.querySelector(".empty-bin-btn").addEventListener("click", () => {
+      document.querySelectorAll(".message").forEach(msg => msg.remove());
+    });
+
+    // Restore message (placeholder)
+    const restoreButtons = document.querySelectorAll(".restore-btn");
+    restoreButtons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        alert("Message restored successfully!");
+        this.closest(".message").remove();
+      });
+    });
+  </script>
+</body>
+</html>
