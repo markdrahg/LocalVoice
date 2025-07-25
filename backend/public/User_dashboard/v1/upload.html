@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload - LocalVoice</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img id="profilePic" src="https://via.placeholder.com/80" alt="Profile" />
+        <input type="file" id="uploadImage" accept="image/*" />
+        <h2>Hello, [Username]</h2>
+        
+      </div>
+      <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+<a href="upload.html"><i class="fas fa-upload"></i> Upload</a>
+<a href="inbox.html"><i class="fas fa-envelope"></i> Inbox</a>
+<a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+<a href="recyclebin.html"><i class="fas fa-trash"></i> Recycle Bin</a>
+<a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section id="upload-section" class="section active">
+        <h2>Upload Multiple Photos or Videos</h2>
+        <form class="upload-form">
+          <label for="photo">Select Photos/Videos:</label>
+          <input type="file" id="photo" name="photos[]" accept="image/*,video/*" multiple required>
+
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="4" placeholder="Describe the issue here..." required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Logout Confirmation Popup -->
+  <div id="logout-popup" class="popup">
+    <div class="popup-content">
+      <p>Are you sure you want to logout?</p>
+      <button onclick="confirmLogout()">YES</button>
+      <button onclick="cancelLogout()">NO</button>
+    </div>
+  </div>
+
+  <script>
+    // Profile Picture Preview
+    const uploadInput = document.getElementById("uploadImage");
+    const profilePic = document.getElementById("profilePic");
+    uploadInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePic.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Logout Popup
+    const logoutBtn = document.getElementById("logout-btn");
+    const popup = document.getElementById("logout-popup");
+    logoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popup.style.display = "flex";
+    });
+    function confirmLogout() {
+      window.location.href = "index.html";
+    }
+    function cancelLogout() {
+      popup.style.display = "none";
+    }
+  </script>
+</body>
+</html>

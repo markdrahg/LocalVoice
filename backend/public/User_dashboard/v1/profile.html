@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - LocalVoice</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img id="profilePic" src="https://via.placeholder.com/80" alt="Image" />
+        <input type="file" id="uploadImage" accept="image/*" />
+        <h2>Hello, [Username]</h2>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="upload.html"><i class="fas fa-upload"></i> Upload</a>
+        <a href="inbox.html"><i class="fas fa-envelope"></i> Inbox</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="recyclebin.html"><i class="fas fa-trash"></i> Recycle Bin</a>
+        <a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="section active">
+        <h2>User Profile</h2>
+        <div class="profile-preview">
+          <p><strong>Full Name:</strong> User's Name</p>
+          <p><strong>Age:</strong> 25</p>
+          <p><strong>Date of Birth:</strong> 1999-07-01</p>
+          <p><strong>Email:</strong> user@gmail.com</p>
+          <p><strong>Contact:</strong> +233 20 000 0000</p>
+          <p><strong>Location:</strong> Accra, Ghana</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Logout Confirmation -->
+  <div id="logout-popup" class="popup">
+    <div class="popup-content">
+      <p>Are you sure you want to logout?</p>
+      <button onclick="confirmLogout()">YES</button>
+      <button onclick="cancelLogout()">NO</button>
+    </div>
+  </div>
+
+  <script>
+    function confirmLogout() {
+      window.location.href = "index.html";
+    }
+    function cancelLogout() {
+      document.getElementById("logout-popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
