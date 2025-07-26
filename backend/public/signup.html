@@ -39,17 +39,18 @@
 <body>
   <div class="login-container">
     <h2>LocalVoice SignUp</h2>
-    <form action="http://localhost:5000/api/community-members/register" method="POST">
-      <input type="text" name="firstName" placeholder="First name" required>
-      <input type="text" name="lastName" placeholder="Last name" required>
-      <input type="email" name="email" placeholder="User@gmail.com" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+    <form id="signupForm">
+      <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+      <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+      <input type="email" id="email" name="email" placeholder="User@gmail.com" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
       <button type="submit">Sign Up</button>
     </form>
     <div class="footer">
       Already have an account? <a href="login.html">Login</a>
     </div>
   </div>
+  <script src="js/signup.js"></script>
 </body>
 </html>

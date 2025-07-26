@@ -18,9 +18,11 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
       localStorage.setItem('token', data.token);
       window.location.href = '/dashboard.html';
     } else {
-      document.getElementById('error').textContent = data.message;
+      console.error('Login failed:', data.message);
+      alert('Login failed: ' + data.message);
     }
   } catch (err) {
-    document.getElementById('error').textContent = 'Something went wrong';
+    console.error('Error during login:', err);
+    alert('An error occurred during login. Please try again.');
   }
 });
