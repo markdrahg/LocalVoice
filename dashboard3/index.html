@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalVoice Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-file-alt"></i>
+                            <span>My Reports</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-edit"></i>
+                            <span>Drafts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 class="logo">LocalVoice</h1>
+                </div>
+                <div class="header-right">
+                    <button class="upload-btn">
+                        <i class="fas fa-plus"></i>
+                        Upload New Report
+                    </button>
+                    <div class="user-profile">
+                        <div class="user-avatar">U</div>
+                        <span class="user-name">John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <h2 class="dashboard-title">Dashboard Overview</h2>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-text">
+                                <p class="stat-label">Total Reports</p>
+                                <h3 class="stat-number">5</h3>
+                            </div>
+                            <div class="stat-icon total-reports">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-text">
+                                <p class="stat-label">Pending Review</p>
+                                <h3 class="stat-number">2</h3>
+                            </div>
+                            <div class="stat-icon pending-review">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-text">
+                                <p class="stat-label">In Progress</p>
+                                <h3 class="stat-number">2</h3>
+                            </div>
+                            <div class="stat-icon in-progress">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-text">
+                                <p class="stat-label">New Notifications</p>
+                                <h3 class="stat-number">3</h3>
+                            </div>
+                            <div class="stat-icon new-notifications">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3 class="section-title">Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-avatar r1">R1</div>
+                            <div class="activity-details">
+                                <h4 class="activity-title">Pothole on Main Street</h4>
+                                <p class="activity-status">Status: <span class="status pending">Pending</span></p>
+                                <p class="activity-info">Submitted: 7/20/2025 in Accra</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-avatar r2">R2</div>
+                            <div class="activity-details">
+                                <h4 class="activity-title">Lack of Clean Water Access</h4>
+                                <p class="activity-status">Status: <span class="status in-progress">In Progress</span></p>
+                                <p class="activity-info">Submitted: 7/18/2025 in Kumasi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-avatar r3">R3</div>
+                            <div class="activity-details">
+                                <h4 class="activity-title">Illegal Waste Dumping</h4>
+                                <p class="activity-status">Status: <span class="status completed">Completed</span></p>
+                                <p class="activity-info">Submitted: 7/15/2025 in Tamale</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
