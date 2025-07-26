@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const db = require('../config/db');
 const {
   createCommunityMember,
   findCommunityMemberByEmail
@@ -37,16 +38,32 @@ const loginCommunityMember = async (req, res) => {
   }
 };
 
-const getMe = (req, res) => {
+const getMe = async (req, res) => {
   const userId = req.user;
+  console.log('Incoming GET /me request for user ID:', userId);
 
-  db.query('SELECT id, first_name, last_name, email FROM community_members WHERE id = ?', [userId], (err, results) => {
-    if (err) return res.status(500).json({ message: 'Database error', error: err });
-    if (results.length === 0) return res.status(404).json({ message: 'User not found' });
+  if (!userId) {
+    return res.status(401).json({ message: 'Unauthorized: Missing user ID' });
+  }
 
+  try {
+    const [results] = await db.query(
+      'SELECT id, first_name, last_name, email FROM community_members WHERE id = ?',
+      [userId]
+    );
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    console.log('✅ User found:', results[0]);
     res.json(results[0]);
-  });
+  } catch (err) {
+    console.error('❌ DB Query Error:', err.message);
+    res.status(500).json({ message: 'Database error', error: err.message });
+  }
 };
+
 
 module.exports = {
   registerCommunityMember,
