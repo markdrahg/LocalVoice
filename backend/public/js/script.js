@@ -55,3 +55,33 @@ document.querySelector('.view-more').addEventListener('click', function (e) {
   });
 
   fadeElements.forEach(el => observer.observe(el));
+
+
+
+// Dark Mode Toggle
+// function myLightFunction() {
+//   console.log("Dark mode toggled");
+//    var element = document.body;
+//    const bulb = document.getElementById('buildIcon');
+//    const navbar = document.querySelector('.navbar');
+//    const hero = document.querySelector('.hero');
+
+//    element.classList.toggle("dark-mode");
+//    bulb.classList.toggle("fa-lightbulb_active");
+//    navbar.classList.toggle("dark-navbar");
+//    hero.classList.toggle("dark-hero");
+// };
+
+
+
+function myLightFunction() {
+  const link = document.getElementById('theme-style');
+  const currentHref = link.getAttribute('href');
+
+  if (currentHref.includes('styles.css')) {
+    link.setAttribute('href', 'styles/dark.css');
+  } else {
+    link.setAttribute('href', 'styles/styles.css');
+  }
+}
+
