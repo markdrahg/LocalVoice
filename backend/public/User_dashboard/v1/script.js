@@ -1,5 +1,49 @@
 // LocalVoice Dashboard JavaScript
 
+  // Check authentication
+     const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '/login.html';
+    }
+
+    fetch('/api/community-members/me', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Unauthorized');
+      }
+      return res.json();
+    })
+    .then(data => {
+        first_name = data.first_name || 'User';
+        last_name = data.last_name || '';
+        email = data.email || 'G12@gmail.com';
+        currentUser = data;
+        signup_date = new Date(data.createdAt).toLocaleDateString();
+      document.getElementById('fullName').textContent = data.first_name + ' ' + data.last_name;
+      document.getElementById('email').textContent = data.email;
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('Session expired or unauthorized. Please login again.');
+      localStorage.removeItem('token');
+      window.location.href = '/login.html';
+    }
+);
+
+
+
+
+
+
+
+
+
+
+
 // Global variables
 let currentUser = null;
 let currentSection = 'dashboard';
@@ -29,18 +73,45 @@ function initializeDashboard() {
     console.log('LocalVoice Dashboard initialized');
     
     // Check authentication
-    const token = localStorage.getItem('token');
+     const token = localStorage.getItem('token');
     if (!token) {
-        console.warn('No authentication token found');
-        // Uncomment to redirect to login
-        // window.location.href = '../login.html';
+      window.location.href = '/login.html';
     }
+
+    fetch('/api/community-members/me', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Unauthorized');
+      }
+      return res.json();
+    })
+    .then(data => {
+        first_name = data.first_name || 'User';
+        last_name = data.last_name || '';
+        currentUser = data;
+      document.getElementById('fullName').textContent = data.first_name + ' ' + data.last_name;
+      document.getElementById('email').textContent = data.email;
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('Session expired or unauthorized. Please login again.');
+      localStorage.removeItem('token');
+      window.location.href = '/login.html';
+    }
+);
+
+
     
     // Show dashboard section by default
     showSection('dashboard');
     
     // Animate stats on load
     animateStats();
+    
 }
 
 // Setup all event listeners
@@ -201,7 +272,7 @@ function handleLogout() {
         
         // Redirect after a short delay
         setTimeout(() => {
-            window.location.href = '../login.html';
+            window.location.href = '/login.html';
         }, 1000);
     }
 }
@@ -247,13 +318,14 @@ function updateUserDisplay() {
     const userAvatarElements = document.querySelectorAll('.user-avatar, .profile-avatar-large');
     const userLocationElements = document.querySelectorAll('.user-location');
     const userEmailElements = document.querySelectorAll('.profile-email');
+     const signup_date = document.querySelectorAll('.profile-joined');
     
     userNameElements.forEach(el => {
-        el.textContent = currentUser.name || 'User';
+        el.textContent =  first_name || 'User';
     });
     
     userAvatarElements.forEach(el => {
-        el.textContent = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : 'U';
+        el.textContent =  first_name ?  first_name.charAt(0).toUpperCase() : 'U';
     });
     
     userLocationElements.forEach(el => {
@@ -263,6 +335,11 @@ function updateUserDisplay() {
     userEmailElements.forEach(el => {
         el.textContent = currentUser.email || 'user@email.com';
     });
+
+    signup_date.forEach(el => {
+        el.textContent = signup_date || 'N/A';
+    }
+    );
 }
 
 // File upload functionality
