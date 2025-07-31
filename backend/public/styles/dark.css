@@ -6,7 +6,7 @@
     --light-color: #ecf0f1;
     --dark-color: #2c3e50;
     --text-color: #fff;
-    --text-light: #7f8c8d;
+    --text-light: #fff;
 }
 
 * {
@@ -315,7 +315,7 @@ h2::after {
     }
     .community-section h2 {
       text-align: center;
-      color: #2c3e50;
+      color: #5c8ab8;
       margin-bottom: 2rem;
     }
     .cards {
@@ -324,7 +324,7 @@ h2::after {
       gap: 2rem;
     }
     .card {
-      background: #fff;
+      background: #25282b;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
@@ -343,10 +343,10 @@ h2::after {
     }
     .card-body h3 {
       margin-bottom: 0.5rem;
-      color: #2c3e50;
+      color: #5c8ab8;
     }
     .card-body p {
-      color: #555;
+      color: #fff;
       font-size: 0.95rem;
     }
 
@@ -361,7 +361,7 @@ h2::after {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
-  color: #2c3e50;
+  color: #2e62ab;
   background: transparent;
   border: 2px solid #2c3e50;
   border-radius: 6px;
@@ -393,8 +393,8 @@ h2::after {
 
 .ngo-callout {
   padding: 4rem 2rem;
-  background: #f0f5ff;
-  color: #2c3e50;
+  background: #141a25;
+  color: #fff;
   text-align: center;
 }
 
@@ -406,7 +406,7 @@ h2::after {
 .ngo-callout h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  color: #5c8ab8;
 }
 
 .ngo-callout p {
@@ -442,7 +442,7 @@ h2::after {
 .highlight-box {
   flex: 1;
   min-width: 240px;
-  background: white;
+  background: #374254;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -463,8 +463,8 @@ h2::after {
 
 .gov-callout {
   padding: 4rem 2rem;
-  background: #fff4e6;
-  color: #2c3e50;
+  background: #fff4e600;
+  color: #fff;
   text-align: center;
 }
 
@@ -476,7 +476,7 @@ h2::after {
 .gov-callout h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  color: #5c8ab8;
 }
 
 .gov-callout p {
@@ -512,7 +512,7 @@ h2::after {
 .gov-highlights .highlight-box {
   flex: 1;
   min-width: 240px;
-  background: white;
+  background: #374254;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -531,8 +531,8 @@ h2::after {
 /* Concern citiziens section */
 .citizen-callout {
   padding: 4rem 2rem;
-  background: #e8faff;
-  color: #2c3e50;
+  background: #0d47a124;
+  color: #fff;
   text-align: center;
 }
 
@@ -544,7 +544,7 @@ h2::after {
 .citizen-callout h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  color: #5c8ab8;
 }
 
 .citizen-callout p {
@@ -565,7 +565,7 @@ h2::after {
 .citizen-highlights .highlight-box {
   flex: 1;
   min-width: 240px;
-  background: white;
+  background: #374254;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -583,7 +583,7 @@ h2::after {
 
 /* Quote section */
 .inspiration-quote {
-  background: #f3f6f9;
+  background: #29305a7d;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -615,7 +615,7 @@ h2::after {
   font-size: 1.4rem;
   line-height: 1.7;
   font-style: italic;
-  color: #2c3e50;
+  color: #3d668f;
   margin: 0;
 }
 
@@ -747,9 +747,9 @@ h2::after {
 
 /* light bulb, dark mode toggle */
 .fa-lightbulb {
-    position: fixed;
+    /* position: fixed;
     top: 3%;
-    right: 7%;
+    right: 7%; */
     font-size: 2rem;
     color: orange;
     cursor: pointer;

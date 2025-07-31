@@ -747,9 +747,9 @@ h2::after {
 
 /* light bulb, dark mode toggle */
 .fa-lightbulb {
-    position: fixed;
+    /* position: fixed;
     top: 3%;
-    right: 7%;
+    right: 7%; */
     font-size: 2rem;
     
     cursor: pointer;
