@@ -21,8 +21,9 @@
         first_name = data.first_name || 'User';
         last_name = data.last_name || '';
         email = data.email || 'G12@gmail.com';
+        date = data.created_at || '2025-01-01';
         currentUser = data;
-        signup_date = new Date(data.createdAt).toLocaleDateString();
+        signup_date = new Date(data.created_at).toLocaleDateString();
       document.getElementById('fullName').textContent = data.first_name + ' ' + data.last_name;
       document.getElementById('email').textContent = data.email;
     })
@@ -92,6 +93,7 @@ function initializeDashboard() {
     .then(data => {
         first_name = data.first_name || 'User';
         last_name = data.last_name || '';
+        date = data.created_at;
         currentUser = data;
       document.getElementById('fullName').textContent = data.first_name + ' ' + data.last_name;
       document.getElementById('email').textContent = data.email;
@@ -316,9 +318,9 @@ function updateUserDisplay() {
     
     const userNameElements = document.querySelectorAll('.user-name');
     const userAvatarElements = document.querySelectorAll('.user-avatar, .profile-avatar-large');
-    const userLocationElements = document.querySelectorAll('.user-location');
+    const userLocationElements = document.querySelectorAll('.uprofile-location');
     const userEmailElements = document.querySelectorAll('.profile-email');
-     const signup_date = document.querySelectorAll('.profile-joined');
+     const Usersignup_date = document.querySelectorAll('.profile-joined');
     
     userNameElements.forEach(el => {
         el.textContent =  first_name || 'User';
@@ -336,8 +338,8 @@ function updateUserDisplay() {
         el.textContent = currentUser.email || 'user@email.com';
     });
 
-    signup_date.forEach(el => {
-        el.textContent = signup_date || 'N/A';
+    Usersignup_date.forEach(el => {
+        el.textContent = currentUser.created_at;
     }
     );
 }

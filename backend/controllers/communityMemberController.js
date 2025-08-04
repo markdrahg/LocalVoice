@@ -48,7 +48,7 @@ const getMe = async (req, res) => {
 
   try {
     const [results] = await db.query(
-      'SELECT id, first_name, last_name, email FROM community_members WHERE id = ?',
+      'SELECT id, first_name, last_name, email, profile_pic, created_at FROM community_members WHERE id = ?',
       [userId]
     );
 
@@ -65,8 +65,29 @@ const getMe = async (req, res) => {
 };
 
 
+const uploadProfilePicture = async (req, res) => {
+  const userId = req.user;
+  const filePath = `/uploads/${req.file.filename}`;
+
+  try {
+    await db.query(
+      'UPDATE community_members SET profile_pic = ? WHERE id = ?',
+      [filePath, userId]
+    );
+
+    res.status(200).json({
+      message: 'Profile picture uploaded successfully',
+      imagePath: filePath,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Database update failed', error: err.message });
+  }
+};
+
+
 module.exports = {
   registerCommunityMember,
   loginCommunityMember,
   getMe,
+  uploadProfilePicture,
 };

@@ -931,7 +931,7 @@ body {
 .profile-avatar-large {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, var(--primary-color), #5dade2);
+    /* background: linear-gradient(135deg, var(--primary-color), #5dade2); */
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1167,6 +1167,15 @@ body {
 
 .message.error {
     background-color: var(--danger-color);
+}
+
+
+/* Profile Picture */
+.avatar-img {
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @keyframes slideInRight {
