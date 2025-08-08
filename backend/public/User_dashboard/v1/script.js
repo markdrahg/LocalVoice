@@ -533,7 +533,7 @@ async function handleReportSubmission(event) {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
         
         const token = localStorage.getItem('token');
-        const response = await fetch('/api/reports', {
+        const response = await fetch('http://localhost:5000/api/community-members/community-problems', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

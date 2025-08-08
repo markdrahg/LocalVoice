@@ -84,10 +84,49 @@ const uploadProfilePicture = async (req, res) => {
   }
 };
 
+const postCommunityProblem = (req, res) => {
+  const userId = req.user;
+  const { title, category, description, location, urgency } = req.body;
+  console.log('Posting community problem:', { title, category, description, location, urgency });
+
+  let imageUrl = null;
+  let videoUrl = null;
+
+  if (req.files && req.files.length > 0) {
+    req.files.forEach(file => {
+      const filePath = `/CommunityProblems/${file.filename}`;
+      if (file.mimetype.startsWith('image/')) {
+        imageUrl = filePath;
+      } else if (file.mimetype.startsWith('video/')) {
+        videoUrl = filePath;
+      }
+    });
+  }
+
+  const sql = `
+    INSERT INTO community_problems 
+    (user_id, title, category, description, location, image_url, video_url, urgency)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    sql,
+    [userId, title, category, description, location, imageUrl, videoUrl, urgency],
+    (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: 'Database error', error: err.message });
+      }
+      res.status(201).json({ message: 'Report submitted successfully', reportId: result.insertId });
+    }
+  );
+};
+
+
 
 module.exports = {
   registerCommunityMember,
   loginCommunityMember,
   getMe,
   uploadProfilePicture,
+  postCommunityProblem,
 };

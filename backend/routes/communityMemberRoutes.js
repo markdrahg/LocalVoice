@@ -5,8 +5,10 @@ const {
   loginCommunityMember,
   getMe,
   uploadProfilePicture,
+  postCommunityProblem,
 } = require('../controllers/communityMemberController');
 const authCommunityMember = require('../middleware/authMiddleware');
+const communityProblemUpload = require('../middleware/communityProblemUploadMiddleware');
 
 const router = express.Router();
 
@@ -22,5 +24,11 @@ router.post(
   uploadProfilePicture
 );
 
+router.post(
+  '/community-problems',
+  authCommunityMember,
+  communityProblemUpload.array('files', 5), // up to 5 files
+  postCommunityProblem
+);
 
 module.exports = router;
