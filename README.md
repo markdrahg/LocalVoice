@@ -1,6 +1,6 @@
 # LocalVoice
 
-LocalVoice is a civic engagement platform that enables community members—especially those in remote or underserved areas—to report infrastructure, health, and environmental issues by uploading photos/videos and submitting details. These reports can then be reviewed by stakeholders (e.g., government bodies, NGOs, and other interested individuals).
+LocalVoice is a civic engagement platform that enables community members, especially those in remote or underserved areas to report infrastructure, health, and environmental issues by uploading photos/videos and submitting details. These reports can then be reviewed by stakeholders (e.g., government bodies, NGOs, and other interested individuals).
 
 This repository contains:
 - A **Node.js/Express backend** with JWT-based authentication and MySQL persistence.
